@@ -4,6 +4,7 @@ services:
   pocketbase:
     build: ./config/pocketbase
     container_name: pocketbase
+    command: --dir "/pb/pb_data" --http "0.0.0.0:8090"
     restart: always
     volumes:
       - "./data/pocketbase:/pb/pb_data"
