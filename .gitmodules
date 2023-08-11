@@ -1,6 +1,3 @@
-[submodule "config/momoka-lite"]
-	path = config/momoka-lite
-	url = https://github.com/tanamoe/momoka-lite.git
-[submodule "config/pocketbase"]
-	path = config/pocketbase
+[submodule "pocketbase"]
+	path = build/pocketbase
 	url = https://github.com/tanamoe/momoka-lite.git

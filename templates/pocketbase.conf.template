@@ -1,23 +1,24 @@
 server {
     listen 80;
     listen [::]:80;
-    server_name pb.tana.moe;
+    server_name ${NGINX_POCKETBASE_DOMAIN};
     location / {
-        rewrite ^ https://pb.tana.moe$request_uri? permanent;
+        rewrite ^ https://${NGINX_POCKETBASE_DOMAIN}$request_uri? permanent;
     }
 }
 
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    server_name pb.tana.moe;
+    server_name ${NGINX_POCKETBASE_DOMAIN};
     client_max_body_size 100M;
+    keepalive_timeout 70;
 
-    ssl_certificate     /etc/ssl/fullchain.pem;
-    ssl_certificate_key /etc/ssl/privkey.pem;
+    ssl_certificate     /etc/ssl/${NGINX_POCKETBASE_DOMAIN}.crt;
+    ssl_certificate_key /etc/ssl/${NGINX_POCKETBASE_DOMAIN}.key;
 
     access_log /var/log/nginx/pocketbase.access.log;
-    error_log  /var/log/nginx/pocketbase.error.log;
+    error_log  /var/log/nginx/NGINX_POCKETBASE_DOMAIN.error.log;
 
     location / {
         proxy_set_header Connection '';
