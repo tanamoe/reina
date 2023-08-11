@@ -18,7 +18,7 @@ server {
     ssl_certificate_key /etc/ssl/${NGINX_POCKETBASE_DOMAIN}.key;
 
     access_log /var/log/nginx/pocketbase.access.log;
-    error_log  /var/log/nginx/NGINX_POCKETBASE_DOMAIN.error.log;
+    error_log  /var/log/nginx/pocketbase.error.log;
 
     location / {
         proxy_set_header Connection '';
