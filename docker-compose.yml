@@ -2,10 +2,10 @@ version: '3.9'
 
 services:
   pocketbase:
-    build: ./build/pocketbase
+    image: ghcr.io/tanamoe/momoka-lite:release
     container_name: pocketbase
-    command: --dir "/pb/pb_data" --http "0.0.0.0:8090"
     restart: always
+    command: --dir "/pb/pb_data" --http "0.0.0.0:8090"
     volumes:
       - "./data/pocketbase:/pb/pb_data"
     networks:
