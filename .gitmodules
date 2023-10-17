@@ -1,3 +1,0 @@
-[submodule "pocketbase"]
-	path = build/pocketbase
-	url = https://github.com/tanamoe/momoka-lite.git
