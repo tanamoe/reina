@@ -8,6 +8,8 @@ services:
     command: --dir "/pb/pb_data" --http "0.0.0.0:8090"
     volumes:
       - "./data/pocketbase:/pb/pb_data"
+    environment:
+      - IMAGOR_SECRET=${IMAGOR_SECRET}
     networks:
       - default
 
